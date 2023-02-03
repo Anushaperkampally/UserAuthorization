@@ -1,0 +1,45 @@
+ <div class="login">
+      <div class="container">
+        <img class="img" src="/assets/harman.jpg">
+          <button type="button" class="btn btn-primary" style="margin-top: 90px; margin-left: 200px;" data-toggle="modal" data-target="#myModal">
+              Login
+          </button>
+      </div>
+  </div>
+
+  <form>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" style="margin-left: 35%;">Authentication</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+          <div class="Authentication">
+                <form [formGroup]="loginform" (ngSubmit)="login()">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="email">
+                  <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)"> 
+                    Email is Required
+                  </div>
+                  <div class="form-text text-danger" *ngIf="Email.errors?.['email'] &&(Email.dirty || Email.touched)">
+                    Email is Invalid
+                </div>
+                  <label for="pwd">Password</label>
+                  <input type="password" class="form-control" placeholder="Enter password" id="password" formControlName="password">
+                  <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">Password is required</div>
+                  <div class="form-text text-danger"*ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.dirty || Password.touched)">Password should be at least 6 and at the max 15 characters long.</div>
+                  <button style="margin-left: 40%; margin-top: 15%;"  type="login" class="button" class="btn btn-primary mb-2">login</button>
+                </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="close()" class="close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <router-outlet></router-outlet>  
+  </form> 
+
+
+

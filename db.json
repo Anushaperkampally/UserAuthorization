@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "firstname": "Sathish",
+      "lastname": "Guptha",
+      "birthday": "2023-01-10",
+      "gender": "m",
+      "education": "PhD",
+      "company": "Wipro",
+      "jobexperience": 4,
+      "salary": 4,
+      "profile": "Profile-01.jpg",
+      "id": 1
+    },
+    {
+      "firstname": "Nabonitha",
+      "lastname": "Bhattacharya",
+      "birthday": "2023-01-12",
+      "gender": "f",
+      "education": "graduate",
+      "company": "Google",
+      "jobexperience": 5,
+      "salary": 4,
+      "profile": "Profile-05.jpg",
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  },
+  "adminlogin": [
+    {
+      "id": 1,
+      "email": "admin@mail.com",
+      "password": "12345@Aa"
+    },
+    {
+      "id": 2,
+      "email": "superadmin@mail.com",
+      "password": "12345@Aa"
+    },
+    {
+      "id": 3,
+      "email": "customer@mail.com",
+      "password": "12345@Aa"
+    }
+  ],
+  "superadmin": [
+    {
+      "email": "superadmin@mail.com",
+      "password": "12345@Aa"
+    }
+  ],
+  "customerlogin": [
+    {
+      "email": "customer@mail.com",
+      "password": "12345@Aa"
+    }
+  ]
+}
