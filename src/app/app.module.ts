@@ -64,7 +64,7 @@ import { UserloginComponent } from './components/userlogin/userlogin.component';
     
   ],
 
-  providers: [ AuthService,AuthGuard,BnNgIdleService,CookieService ],
+  providers: [ AuthGuard,BnNgIdleService,CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private httpclient:HttpClient) { }
-  postlogin(login:string):Observable<any>
+  getlogin(login:string):Observable<any>
   {
     return this.httpclient.post("http://localhost:3000/superadmin",login)
   }

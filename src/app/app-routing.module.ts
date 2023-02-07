@@ -20,22 +20,18 @@ import { UserloginComponent } from './components/userlogin/userlogin.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
-  {path:"UsermainComponent", component:UsermainComponent,canActivate:[AuthGuard],children:[
-  {path:"sidebar", component:SidebarComponent},
-  {path:"dashboard", component:DashboardComponent},
+
+  {path:"UsermainComponent", component:UsermainComponent},
+    {path:"sidebar", component:SidebarComponent},
+    {path:"dashboard", component:DashboardComponent},
+    {path:"admin",component:AdminloginComponent},
+    {path:"register",component:RegisterComponent},
+    {path:"Userlogin",component:UserloginComponent}, 
+    {path:"userlisting",component:UserListingComponent},
+    {path:"employee",component:EmployeeComponent},
+    {path:"HeaderComponent",component:HeaderComponent},
+    
   
-  ]},
-
-  {path:"admin",component:AdminloginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"Userlogin",component:UserloginComponent},
-  {path:"userlisting",component:UserListingComponent},
-  {path:"employee",component:EmployeeComponent},
-  {path:"HeaderComponent",component:HeaderComponent},
-
- 
-  
-
 
   {path: "",component:LoginComponent},
   {path: "**",component:Pagenotfound401Component},

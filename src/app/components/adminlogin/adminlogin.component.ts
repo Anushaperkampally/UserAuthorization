@@ -40,7 +40,7 @@ export class AdminloginComponent {
         return a.email ===this.loginform.value.email && a.password === this.loginform.value.password
       });
       if(user){
-        this.cookie.set("userid","1");
+        this.cookie.set("userid","2");
         alert("user with id (" + this.cookie.get("userid") + ") success");
         this.loginform.reset()
         this.router.navigate(["register"])
