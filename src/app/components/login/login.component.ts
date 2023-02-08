@@ -42,20 +42,3 @@ constructor(private loginservice:LoginService, private router:Router) {}
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
