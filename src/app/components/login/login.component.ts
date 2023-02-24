@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators ,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginResponce } from 'src/app/interface/login-responce';
 import { LoginService } from 'src/app/services/login.service';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -14,34 +16,31 @@ import { LoginService } from 'src/app/services/login.service';
 })
 
 export class LoginComponent implements OnInit {
+  isSubmitted: boolean = false;
+  isValidUser: boolean = false;
+public loginform!: FormGroup;
 
-public loginform!: FormGroup
 
-constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router){}
+constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router,private authservice:AuthService){}
 
-  login(){
-    this.http.get<any>("http://localhost:3000/superadmin" && "http://localhost:3000/adminlogin").subscribe(res=>{
-      const user =res.find((a:any)=>{
-        return a.email === this.loginform.value.email && a.password === this.loginform.value.password
-      });
-      if(user){
-        alert("loginsuccesfull");
-        this.loginform.reset()
-        this.router.navigate(["UsermainComponent"])
+login() {
+  this.authservice
+    .login(this.loginform.value.email, this.loginform.value.password)
+    .subscribe((data) => {
+      if (data) {
+        sessionStorage.setItem('token',"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciI")
+        this.router.navigate(['/UsermainComponent']); 
+        alert("sucessfully login") // If valid and route to card
       }
-      else{
-        alert("user not found")
-        this.router.navigate(["login"])
-      }
-      (error:any)=>{
-        alert("something went wrong")
-      }
-    })
-  }
+      this.isSubmitted = true;
+      this.isValidUser = data; // false show error message
+    });
+}
 
   close(){
            this.router.navigate(["login"])
   }
+
 
   get Email(): FormControl {
      return this.loginform.get("email")as FormControl;
@@ -58,7 +57,6 @@ constructor(private formbuilder:FormBuilder,private http:HttpClient,private rout
 
 
     })
-  }    
-
-
+  }
+ 
  }

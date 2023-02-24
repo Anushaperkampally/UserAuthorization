@@ -11,8 +11,8 @@ export class LoginService {
 
   constructor( private httpclient:HttpClient) { }
 
-  getlogin(user:LoginComponent):Observable<any>{
+  // getlogin(user:LoginComponent):Observable<any>{
 
-    return this.httpclient.post<LoginResponce>("https://reqres.in/api/login",user)
-  }
+  //   return this.httpclient.post<LoginResponce>("",user)
+  // }
 }

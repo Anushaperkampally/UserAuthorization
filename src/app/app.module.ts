@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BnNgIdleService } from 'bn-ng-idle';
 
 
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UsermainComponent } from './components/usermain/usermain.component';
@@ -64,7 +65,7 @@ import { UserloginComponent } from './components/userlogin/userlogin.component';
     
   ],
 
-  providers: [ AuthGuard,BnNgIdleService,CookieService ],
+  providers: [ AuthGuard,AuthService,BnNgIdleService,CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

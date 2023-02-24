@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
 
 
 @Injectable({
@@ -9,8 +9,14 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private httpclient:HttpClient) { }
-  getlogin(login:string):Observable<any>
-  {
-    return this.httpclient.post("http://localhost:3000/superadmin",login)
+
+  isAuthenticate: boolean = false;
+  login(email: string, password: string): Observable<boolean> {
+    if (email === 'superadmin@mail.com' || 'admin@mail.com'  && password === '12345@Aa') {
+      this.isAuthenticate = true;
+      return of(true);
+    }
+    return of(false);
+    
   }
 }
