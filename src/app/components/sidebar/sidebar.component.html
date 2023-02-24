@@ -1,6 +1,7 @@
 <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
     <div class="container-fluid">
-        <!-- Toggler --> <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Brand --> <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 logo" > Jassa </a> <!-- User menu (mobile) -->
+        <!-- Toggler -->
+         <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Brand --> <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 logo" > Jassa </a> <!-- User menu (mobile) -->
         <div class="navbar-user d-lg-none">
             <!-- Dropdown -->
             <div class="dropdown">
@@ -10,17 +11,21 @@
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar"> <a  class="dropdown-item">Profile</a> <a  class="dropdown-item">Settings</a> <a  class="dropdown-item">Billing</a>
                     <hr class="dropdown-divider"> <a  class="dropdown-item">Logout</a> </div>
             </div>
-        </div> <!-- Collapse -->
+        </div>
+         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidebarCollapse">
             <!-- Navigation -->
             <ul class="navbar-nav">
+                <li class="nav-item"> <a class="btn d-inline-flex btn-sm btn-danger mx-8" > <i class="bi bi-box-arrow-left" (click)="Logout()"></i> Logout </a> </li>
                 <li class="nav-item"> <a class="nav-link" > <i class="bi bi-house"></i> Dashboard </a> </li>
                 <li class="nav-item"> <a class="nav-link" > <i class="bi bi-bar-chart"></i> Analitycs </a> </li>
                 <li class="nav-item"> <a class="nav-link" > <i class="bi bi-chat"></i> Messages <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span> </a> </li>
                 <li class="nav-item"> <a class="nav-link" > <i class="bi bi-bookmarks"></i> Collections </a> </li>
                 <li class="nav-item"> <a class="nav-link" > <i class="bi bi-people"></i> Users </a> </li>
-            </ul> <!-- Divider -->
-            <hr class="navbar-divider my-5 opacity-20"> <!-- Navigation -->
+            </ul> 
+            <!-- Divider -->
+            <hr class="navbar-divider my-5 opacity-20">
+             <!-- Navigation -->
             <ul class="navbar-nav mb-md-4">
                 <li>
                     <div class="nav-link text-xs font-semibold text-uppercase text-muted ls-wide" > Contacts <span class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-4">13</span> </div>
@@ -47,10 +52,9 @@
                         <div class="ms-auto"> <i class="bi bi-chat"></i> </div>
                     </a> </li>
             </ul> <!-- Push content down -->
-            <div class="mt-auto"></div> <!-- User (md) -->
+            <div class="mt-auto"></div> 
+            <!-- User (md) -->
             <ul class="navbar-nav">
-                <!-- <li class="nav-item"> <a class="nav-link" > <i class="bi bi-person-square"></i> Account </a> </li> -->
-                <li class="nav-item"> <a class="nav-link" > <i class="bi bi-box-arrow-left" (click)="Logout()"></i> Logout </a> </li>
             </ul>
         </div>
     </div>
