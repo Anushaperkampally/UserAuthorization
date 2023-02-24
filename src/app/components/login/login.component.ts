@@ -16,27 +16,38 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  isSubmitted: boolean = false;
-  isValidUser: boolean = false;
-public loginform!: FormGroup;
-
-
-constructor(private formbuilder:FormBuilder,private http:HttpClient,private router:Router,private authservice:AuthService){}
-
-login() {
-  this.authservice
-    .login(this.loginform.value.email, this.loginform.value.password)
-    .subscribe((data) => {
-      if (data) {
+  public loginform!: FormGroup
+  
+  constructor(private authservice: AuthService ,private formbuilder:FormBuilder,private http:HttpClient,private router:Router){}
+  ngOnInit(): void {
+        this.loginform=this.formbuilder.group({
+          email:new FormControl("",[Validators.required,Validators.email]),
+          password:new FormControl("",[Validators.required,Validators.maxLength(15),Validators.minLength(6)])
+                
+      
+        })
+      } 
+  
+  login() {
+    debugger;
+    this.http.get<any>("http://localhost:3000/superadmin" && "http://localhost:3000/adminlogin").subscribe(res=>{
+            const user =res.find((a:any)=>{
+              return a.email === this.loginform.value.email && a.password === this.loginform.value.password
+            });
+      if (user != null) {
+      
+        console.log("user data", user);
         sessionStorage.setItem('token',"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciI")
-        this.router.navigate(['/UsermainComponent']); 
-        alert("sucessfully login") // If valid and route to card
+        this.router.navigate(['/UsermainComponent']);
       }
-      this.isSubmitted = true;
-      this.isValidUser = data; // false show error message
-    });
-}
-
+      else {
+        
+        alert('plz enter validate username and password');
+      }
+    })
+  
+  }
+  
   close(){
            this.router.navigate(["login"])
   }
@@ -50,13 +61,6 @@ login() {
      return this.loginform.get("password")as FormControl;
    } 
 
-  ngOnInit(): void {
-    this.loginform=this.formbuilder.group({
-      email:new FormControl("",[Validators.required,Validators.email]),
-      password:new FormControl("",[Validators.required,Validators.maxLength(15),Validators.minLength(6)])
-
-
-    })
-  }
+ 
  
  }

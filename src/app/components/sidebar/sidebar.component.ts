@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
   Logout(){
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     this.router.navigate(["login"])
   }
 

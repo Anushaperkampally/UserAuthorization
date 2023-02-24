@@ -16,17 +16,15 @@ export class AuthGuard implements CanActivate {
      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
 
-  if (this.authservice.isAuthenticate)
-   {
-     return true;
-
-    }
-     else {
-      alert("login is manditory to open this page")
-      this .router.navigateByUrl("/login")
-      return false;
+      if(this.authservice.IsLoggedIn()){
+            return true;
+          }
       
-      }
+        else{
+          alert("login is manditory to opn this page");
+          this.router.navigateByUrl('/login')
+          return false;
+        }
 }
   
 }
